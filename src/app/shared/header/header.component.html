@@ -2,12 +2,20 @@
 <nav
   class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
 >
+  <!-- Sidebar Toggle (Topbar) -->
+  <button
+    id="sidebarToggleTop"
+    class="btn btn-link d-md-none rounded-circle mr-3"
+  >
+    <i class="fa fa-bars"></i>
+  </button>
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
     <!-- Nav Item - Mode Dark -->
     <li class="nav-item dropdown no-arrow mx-1">
       <a
         class="nav-link"
+        href="#"
         role="button"
         aria-haspopup="true"
         aria-expanded="false"
@@ -28,11 +36,11 @@
         aria-haspopup="true"
         aria-expanded="false"
       >
+        <i class="far fa-bell fa-fw circle-icon"></i>
         <!-- Counter - Notification -->
         <span class="badge badge-danger badge-counter">{{
           notifications.length
         }}</span>
-        <i class="far fa-bell fa-fw circle-icon"></i>
       </a>
       <!-- Dropdown - Notification -->
       <div
