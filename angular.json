@@ -27,7 +27,8 @@
             "styles": [
               "src/styles.scss",
               "src/assets/scss/sb-admin-2.scss",
-              "src/assets/vendor/bootstrap/scss/bootstrap.scss"
+              "src/assets/vendor/bootstrap/scss/bootstrap.scss",
+              "src/assets/vendor/fontawesome-free/css/all.min.css"
             ],
             "scripts": []
           },

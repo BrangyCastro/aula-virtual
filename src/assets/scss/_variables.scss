@@ -19,6 +19,8 @@ $black: #000 !default;
 $dark: #404e5a !default;
 $black-text: #0c090d !default;
 
+$bg: #f7f7f7 !default;
+
 $blue: #4e73df !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
@@ -63,7 +65,7 @@ $topbar-base-height: 4.375rem;
 // Change below variable to change the width of the sidenav
 $sidebar-base-width: 14rem;
 // Change below variable to change the width of the sidenav when collapsed
-$sidebar-collapsed-width: 6.5rem;
+$sidebar-collapsed-width: 7.5rem;
 
 // Card
 $card-cap-bg: $gray-100;
