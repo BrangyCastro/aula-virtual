@@ -15,12 +15,12 @@ export class AppComponent implements OnInit {
 
   init() {
     // Toggle the side navigation
-    $('#sidebarToggle, #sidebarToggleTop').on('click', function (e) {
+    $('#sidebarToggle, #sidebarToggleTop').on('click', (e) => {
       $('body').toggleClass('sidebar-toggled');
       $('.sidebar').toggleClass('toggled');
-      if ($('.sidebar').hasClass('toggled')) {
-      }
     });
+
+    $('.sidebar').toggleClass('toggled');
 
     // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
     $('body.fixed-nav .sidebar').on(
@@ -36,8 +36,8 @@ export class AppComponent implements OnInit {
     );
 
     // Scroll to top button appear
-    $(document).on('scroll', function () {
-      var scrollDistance = $(this).scrollTop();
+    $(document).on('scroll', () => {
+      const scrollDistance = $(this).scrollTop();
       if (scrollDistance > 100) {
         $('.scroll-to-top').fadeIn();
       } else {
