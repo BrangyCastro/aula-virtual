@@ -15,13 +15,6 @@ body {
     .card-container {
       padding: 1.5rem;
     }
-    a.small {
-      color: $dark;
-      text-decoration: none;
-      &:hover {
-        color: $green;
-      }
-    }
   }
   .img-login {
     width: 18rem;
@@ -181,7 +174,7 @@ input:checked + .slider:before {
 
 @include media-breakpoint-up(md) {
   .bg-login-image {
-    background-image: url("src/assets/icon/bg.png");
+    background-image: url("src/assets/icon/bg-dark.png");
     background-repeat: no-repeat;
     display: flex;
     .card {
