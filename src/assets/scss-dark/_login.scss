@@ -11,17 +11,9 @@ body {
   height: 100%;
   .card {
     margin-bottom: 2rem;
-    margin-top: 2rem;
     border-radius: 1.25rem;
     .card-container {
       padding: 1.5rem;
-    }
-    a.small {
-      color: $dark;
-      text-decoration: none;
-      &:hover {
-        color: $green;
-      }
     }
   }
   .img-login {
@@ -111,13 +103,12 @@ body {
 
 .text-mode {
   margin: 0.3rem;
-  font-size: 0.7rem;
 }
 .switch {
   position: relative;
   display: inline-block;
-  width: 2.5rem;
-  height: 1.5rem;
+  width: 3.75rem;
+  height: 2.125rem;
   input {
     opacity: 0;
     width: 0;
@@ -135,12 +126,16 @@ body {
     transition: 0.4s;
     &::before {
       position: absolute;
-      content: "";
+      font-weight: 600;
+      content: "\f00d";
+      font-family: "Font Awesome 5 Free";
       text-align: center;
-      height: 19px;
-      width: 19px;
+      color: $white;
+      height: 28px;
+      width: 28px;
       left: 2px;
       top: 1px;
+      // bottom: 4px;
       background-color: $check;
       -webkit-transition: 0.4s;
       transition: 0.4s;
@@ -158,11 +153,14 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  content: "";
+  font-weight: 600;
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
   background-color: $green;
-  -webkit-transform: translateX(22px);
-  -ms-transform: translateX(22px);
-  transform: translateX(14px);
+  text-align: center;
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
 
 /* Rounded sliders */
@@ -176,13 +174,9 @@ input:checked + .slider:before {
 
 @include media-breakpoint-up(md) {
   .bg-login-image {
-    background-image: url("src/assets/icon/bg.png");
+    background-image: url("src/assets/icon/bg-dark.png");
     background-repeat: no-repeat;
     display: flex;
-    .logo-movil img {
-      // background-image: url("src/assets/icon/book.svg");
-      display: none;
-    }
     .card {
       margin-top: 4rem;
       margin-bottom: 3rem;
@@ -208,33 +202,5 @@ input:checked + .slider:before {
         border: 0.1em solid $green;
       }
     }
-  }
-  .text-mode {
-    font-size: 0.9rem;
-  }
-  .switch {
-    width: 3rem;
-    height: 2rem;
-    .slider {
-      &::before {
-        font-weight: 600;
-        content: "\f00d";
-        font-family: "Font Awesome 5 Free";
-        text-align: center;
-        height: 26px;
-        width: 26px;
-        color: $white;
-      }
-    }
-  }
-  input:checked + .slider:before {
-    font-weight: 600;
-    content: "\f00c";
-    font-family: "Font Awesome 5 Free";
-    background-color: $green;
-    text-align: center;
-    -webkit-transform: translateX(16px);
-    -ms-transform: translateX(16px);
-    transform: translateX(16px);
   }
 }
