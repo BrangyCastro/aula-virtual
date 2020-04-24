@@ -1,1 +1,104 @@
-<p>home works!</p>
+<div class="row">
+  <div class="col-xl-6 col-md-6 col-sm-6">
+    <div class="row">
+      <!-- Earnings (Monthly) Card Example -->
+      <div
+        class="col-xl-12 col-md-12 col-sm-6 mb-2"
+        *ngFor="let materia of materias"
+      >
+        <div class="card card-tarea shadow-sm pointer">
+          <div class="card-body">
+            <div class="font-weight-bold text-uppercase mb-1">
+              {{ materia.nombre }}
+            </div>
+            <div>
+              <span class="small"
+                ><strong>Paralelo:</strong> {{ materia.paralelo }}</span
+              >
+            </div>
+            <div>
+              <span class="small"
+                ><strong>Local:</strong> {{ materia.local }}</span
+              >
+            </div>
+            <div>
+              <span class="small"
+                ><strong>Horario:</strong> {{ materia.horario }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-6 col-md-6 col-sm-6">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Page Heading Noticias-->
+        <div class="d-flex justify-content-noticia mb-4">
+          <h1 class="h3 mb-0 text-gray-800">Noticias</h1>
+          <a href="#" class="p-2">Ver todas</a>
+        </div>
+        <div class="" *ngFor="let noticia of noticias; let i = index">
+          <div class="card shadow-sm mb-2 pointer" *ngIf="i <= 1">
+            <div class="card-body">
+              <h5 class="card-title font-weight-bold text-uppercase">
+                {{ noticia.titulo }}
+              </h5>
+              <p class="card-text">{{ noticia.contenido }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Page Heading Matriculas-->
+        <div class="d-sm-flex my-4">
+          <h1 class="h3 mb-0 text-gray-800">Matriculas</h1>
+        </div>
+        <div *ngFor="let matricula of matriculas; first as isFirst">
+          <div *ngIf="isFirst" class="card card-matricula shadow-sm mb-2">
+            <div class="card-body">
+              <h5 class="card-title font-weight-bold text-uppercase">
+                {{ matricula.titulo }}
+              </h5>
+              <div class="row">
+                <div class="col-6 justify-content-left">
+                  <div class="mt-1 small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-warning mr-1"></i>
+                      <strong>Generado:</strong> {{ matricula.generado }}
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-green mr-1"></i>
+                      <strong>Pagado</strong> {{ matricula.pagado }}
+                    </span>
+                  </div>
+                  <div class="mb-2 small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary mr-1"></i>
+                      <strong>Descuento</strong> {{ matricula.descuento }}
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-danger mr-1"></i>
+                      <strong>Deuda</strong> {{ matricula.deuda }}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="col-6 d-flex justify-content-end align-items-center"
+                >
+                  <a href="index.html" class="btn btn-outline-success my-2">
+                    Asignaturas
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page Heading Reportes-->
+        <div class="d-flex justify-content-between my-4">
+          <h1 class="h3 mb-0 text-gray-800">Reportes</h1>
+          <a href="#" class="btn btn-outline-success">Materias registradas</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
