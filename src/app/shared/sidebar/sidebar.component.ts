@@ -10,7 +10,7 @@ export class SidebarComponent implements OnInit {
     {
       nombre: 'Inicio',
       icono: 'home.svg',
-      url: '/inicio',
+      url: '/home',
     },
     {
       nombre: 'Mis notas',

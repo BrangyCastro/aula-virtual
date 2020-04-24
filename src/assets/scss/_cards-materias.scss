@@ -1,0 +1,80 @@
+.card-tarea {
+  background-color: $green !important;
+  border-radius: 10px !important;
+  border: none !important;
+
+  .card-body {
+    .font-weight-bold {
+      font-size: 0.9rem !important;
+    }
+    .small {
+      font-size: 0.6rem;
+      strong {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+.card {
+  border-radius: 10px !important;
+  border: none !important;
+  // cursor: pointer;
+  .card-body {
+    .card-title {
+      font-size: 0.7rem !important;
+    }
+    .card-text {
+      font-size: 0.6rem;
+    }
+  }
+}
+
+.justify-content-noticia {
+  justify-content: space-between;
+  margin-top: 1.5rem !important;
+  a {
+    text-decoration: none;
+    color: $green;
+    font-size: 0.8rem;
+    &:hover {
+      text-decoration: none;
+      color: $dark;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .card-tarea {
+    .card-body {
+      .font-weight-bold {
+        font-size: 1rem !important;
+      }
+      .small {
+        font-size: 0.7rem;
+        strong {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  .card {
+    border-radius: 10px !important;
+    border: none !important;
+    .card-body {
+      .card-title {
+        font-size: 0.9rem !important;
+      }
+      .card-text {
+        font-size: 0.7rem;
+      }
+    }
+    &:hover {
+      box-shadow: 0 12px 25px -12px rgba(0, 0, 0, 0.25) !important;
+    }
+  }
+
+  .justify-content {
+    margin-top: 0rem !important;
+  }
+}
