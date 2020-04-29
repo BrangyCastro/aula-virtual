@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
     {
       nombre: 'Eventos',
       icono: 'calendar-check.svg',
-      url: '/eventos',
+      url: '/event',
     },
   ];
 

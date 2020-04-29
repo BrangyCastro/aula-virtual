@@ -1,0 +1,53 @@
+<!-- START - Page Heading Eventos-->
+<div class="d-flex justify-content-between my-4">
+  <h1 class="h3 mb-0 text-gray-800">
+    Eventos <span class="text-green">({{ anio }})</span>
+  </h1>
+  <select
+    class="selectpicker"
+    id="inputGroupSelect03"
+    aria-label="Example select with button addon"
+    (change)="mostrarEventos($event.target.value)"
+  >
+    <option value="0">--All--</option>
+    <option
+      [value]="listaEvento.mes"
+      *ngFor="let listaEvento of listaEventos"
+      >{{ listaEvento.mes }}</option
+    >
+  </select>
+</div>
+<!-- END - Page Heading Eventos-->
+<!-- START - Lista de eventos -->
+<div class="col-md-12">
+  <div class="card-columns mb-3" *ngFor="let listaEvento of resultadoEventos">
+    <div class="d-sm-flex my-4">
+      <h1 class="h3 mb-0 text-green">{{ listaEvento.mes }}</h1>
+    </div>
+    <div
+      class="card shadow-sm mb-2"
+      *ngFor="let eventos of listaEvento.eventos"
+    >
+      <div class="card-body">
+        <p class="card-text text-right text-uppercase">
+          <small class="text-success">{{ eventos.fecha }}</small>
+        </p>
+        <h5 class="card-title font-weight-bold">
+          {{ eventos.nombre }}
+        </h5>
+        <div>
+          <span class="small"
+            ><strong>Organiza:</strong> {{ eventos.organiza }}</span
+          >
+        </div>
+        <div>
+          <span class="small"><strong>Lugar:</strong> {{ eventos.lugar }}</span>
+        </div>
+        <div>
+          <span class="small"><strong>Hora:</strong> {{ eventos.hora }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END - Lista de eventos -->
