@@ -1,0 +1,279 @@
+<div class="row mb-2">
+  <!-- START Donut Chart - Créditos aprobados -->
+  <div class="col-xl-4 col-lg-5">
+    <div class="card shadow mb-3">
+      <!-- Card Body -->
+      <div class="card-body">
+        <h2 class="text-lg">Créditos aprobados</h2>
+        <app-chart
+          [labels]="labelCreditosAprobados"
+          [color]="colorCreditosAprobados"
+          [data]="dataCreditosAprobados"
+        ></app-chart>
+      </div>
+    </div>
+  </div>
+  <!-- END Donut Chart - Créditos aprobados -->
+  <!-- START Donut Chart - Materias aprobados -->
+  <div class="col-xl-4 col-lg-5">
+    <div class="card shadow mb-3">
+      <!-- Card Body -->
+      <div class="card-body">
+        <h2 class="text-lg">Materias aprobados</h2>
+        <app-chart
+          [labels]="labelMateriasAprobados"
+          [color]="colorMateriasAprobados"
+          [data]="dataMateriasAprobados"
+        ></app-chart>
+      </div>
+    </div>
+  </div>
+  <!-- END Donut Chart - Materias aprobados -->
+  <!-- START Donut Chart - >Materias del pensum -->
+  <div class="col-xl-4 col-lg-5">
+    <div class="card shadow mb-3">
+      <!-- Card Body -->
+      <div class="card-body">
+        <h2 class="text-lg">Materias del pensum</h2>
+        <app-chart
+          [labels]="labelMateriasPensum"
+          [color]="colorMateriasPensum"
+          [data]="dataMateriasPensum"
+          [legend]="'true'"
+        ></app-chart>
+      </div>
+    </div>
+  </div>
+  <!-- END Donut Chart - >Materias del pensum -->
+</div>
+<div class="row">
+  <!-- START Card - Materias -->
+  <div class="col-xl-12 col-lg-5">
+    <div class="card shadow mb-3">
+      <!-- Card Header - Dropdown -->
+      <div
+        class="card-header d-flex flex-row align-items-center justify-content-between"
+      >
+        <h6 class="my-2 text-lg">Materias</h6>
+        <div>
+          <a href="" class="btn btn-outline-success my-1">
+            <i class="fas fa-print"></i> Imprimir</a
+          >
+        </div>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body align-items-center">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a
+              class="nav-item nav-link text-black"
+              id="nav-home-tab"
+              data-toggle="tab"
+              href="#nivel"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+              *ngFor="let nivel of niveles; let i = index"
+              (click)="mostrarNivel(nivel.nombre)"
+              [class.active]="selectedIndex === i"
+              >{{ nivel.nombre }}</a
+            >
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            class="tab-pane fade show active table-responsive"
+            id="nivel"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            <table class="table mt-2 table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Materia</th>
+                  <th scope="col" class="text-center">1 Par.</th>
+                  <th scope="col" class="text-center">2 Par.</th>
+                  <th scope="col" class="text-center">Recup.</th>
+                  <th scope="col" class="text-center">Final</th>
+                  <th scope="col" class="text-center">Estado</th>
+                  <th scope="col" class="text-center">Creditos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let materia of resultadoNivel.materias"
+                  [ngClass]="{
+                    'table-success': materia.estado === 'Aprobado',
+                    'table-primary': materia.estado === 'Periodo actual',
+                    'table-light': materia.estado === 'No tomado'
+                  }"
+                >
+                  <th scope="row">{{ materia.codigo }}</th>
+                  <td>{{ materia.nombre }}</td>
+                  <td class="text-center">{{ materia.partUno }}</td>
+                  <td class="text-center">{{ materia.partDos }}</td>
+                  <td class="text-center">{{ materia.recup }}</td>
+                  <td class="text-center">{{ materia.final }}</td>
+                  <td class="text-center">{{ materia.estado }}</td>
+                  <td class="text-center">{{ materia.creditos }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" *ngFor="let nivel of niveles">
+            <a
+              class="nav-link"
+              id="home-tab"
+              data-toggle="tab"
+              href="#nivel"
+              (click)="mostrarNivel(nivel.nombre)"
+              role="tab"
+              aria-controls="home"
+              >{{ nivel.nombre }}</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div
+            class="tab-pane fade show active table-responsive"
+            id="nivel"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Materia</th>
+                  <th scope="col" class="text-center">1 Par.</th>
+                  <th scope="col" class="text-center">2 Par.</th>
+                  <th scope="col" class="text-center">Recup.</th>
+                  <th scope="col" class="text-center">Final</th>
+                  <th scope="col" class="text-center">Estado</th>
+                  <th scope="col" class="text-center">Creditos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let materia of resultadoNivel.materias"
+                  [ngClass]="{
+                    'table-success': materia.estado === 'Aprobado',
+                    'table-primary': materia.estado === 'Periodo actual',
+                    'table-light': materia.estado === 'No tomado'
+                  }"
+                >
+                  <th scope="row">{{ materia.codigo }}</th>
+                  <td>{{ materia.nombre }}</td>
+                  <td class="text-center">{{ materia.partUno }}</td>
+                  <td class="text-center">{{ materia.partDos }}</td>
+                  <td class="text-center">{{ materia.recup }}</td>
+                  <td class="text-center">{{ materia.final }}</td>
+                  <td class="text-center">{{ materia.estado }}</td>
+                  <td class="text-center">{{ materia.creditos }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- END Card - Materias -->
+  <!-- START Card - Materias reprobadas -->
+  <div class="col-xl-12 col-lg-5">
+    <div class="card shadow mb-3">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header align-items-center">
+        <h6 class="my-2 text-lg">Materias reprobadas</h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Materia</th>
+                <th scope="col" class="text-center">1 Par.</th>
+                <th scope="col" class="text-center">2 Par.</th>
+                <th scope="col" class="text-center">Final</th>
+                <th scope="col" class="text-center">Recup.</th>
+                <th scope="col" class="text-center">Suma</th>
+                <th scope="col" class="text-center">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let materia of materiasReprobadas"
+                [ngClass]="{
+                  'table-danger': materia.estado === 'Reprobado por notas'
+                }"
+              >
+                <th scope="row">{{ materia.codigo }}</th>
+                <td>{{ materia.nombre }}</td>
+                <td class="text-center">{{ materia.partUno }}</td>
+                <td class="text-center">{{ materia.partDos }}</td>
+                <td class="text-center">{{ materia.final }}</td>
+                <td class="text-center">{{ materia.recup }}</td>
+                <td class="text-center">{{ materia.suma }}</td>
+                <td class="text-center">{{ materia.estado }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Card - Materias reprobadas -->
+  <!-- START Card - Aprobadas de otro Pensum -->
+  <div class="col-xl-12 col-lg-5">
+    <div class="card shadow mb-3">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header align-items-center">
+        <h6 class="my-2 text-lg">Aprobadas de otro Pensum</h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Materia</th>
+                <th scope="col" class="text-center">1 Par.</th>
+                <th scope="col" class="text-center">2 Par.</th>
+                <th scope="col" class="text-center">Final</th>
+                <th scope="col" class="text-center">Recup.</th>
+                <th scope="col" class="text-center">Estado</th>
+                <th scope="col" class="text-center">Suma</th>
+                <th scope="col" class="text-center">Creditos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let materia of materiasPensum"
+                [ngClass]="{
+                  'table-success': materia.estado === 'Aprobado'
+                }"
+              >
+                <th scope="row">{{ materia.codigo }}</th>
+                <td>{{ materia.nombre }}</td>
+                <td class="text-center">{{ materia.partUno }}</td>
+                <td class="text-center">{{ materia.partDos }}</td>
+                <td class="text-center">{{ materia.final }}</td>
+                <td class="text-center">{{ materia.recup }}</td>
+                <td class="text-center">{{ materia.suma }}</td>
+                <td class="text-center">{{ materia.estado }}</td>
+                <td class="text-center">{{ materia.creditos }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Card - Aprobadas de otro Pensum -->
+</div>

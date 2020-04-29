@@ -3,6 +3,9 @@
 .card {
   .card-header {
     // Format Dropdowns in Card Headings
+    background-color: $white;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     .dropdown {
       line-height: 1;
       .dropdown-menu {

@@ -15,7 +15,12 @@
 
   <!-- Nav Item - Menu -->
   <li class="nav-item" *ngFor="let menu of menus">
-    <a class="nav-link" [routerLink]="menu.url" routerLinkActive="active">
+    <a
+      class="nav-link"
+      [routerLink]="menu.url"
+      routerLinkActive="active"
+      id="sidebarToggleMenu"
+    >
       <img src="assets/icon/{{ menu.icono }}" alt="" />
       <span class="text-black">{{ menu.nombre }}</span></a
     >

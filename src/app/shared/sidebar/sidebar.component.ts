@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,7 +16,7 @@ export class SidebarComponent implements OnInit {
     {
       nombre: 'Mis notas',
       icono: 'book.svg',
-      url: '/mis-notas',
+      url: '/my-note',
     },
     {
       nombre: 'Materias abiertas',
@@ -46,5 +47,9 @@ export class SidebarComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.init();
+  }
+
+  init() {}
 }
