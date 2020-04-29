@@ -1,7 +1,5 @@
 <!-- Topbar -->
-<nav
-  class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
->
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 shadow-sm">
   <!-- Sidebar Toggle (Topbar) -->
   <button
     id="sidebarToggleTop"
@@ -62,7 +60,7 @@
           <div class="">
             <div class="text-truncate">
               <!-- Se ha agregado la tarea <strong>Trabajo Jefe Encubierto</strong>,
-                  para entregar antes de <strong>28/01/2020</strong> -->
+                    para entregar antes de <strong>28/01/2020</strong> -->
               {{ notification.menssage }}
             </div>
             <div class="small text-gray-500">{{ notification.time }}</div>
@@ -112,7 +110,7 @@
     <li class="nav-item">
       <a
         class="nav-link"
-        href="#"
+        routerLink="auth"
         role="button"
         aria-haspopup="true"
         aria-expanded="false"

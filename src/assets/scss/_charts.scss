@@ -21,9 +21,9 @@
 // Pie Chart
 .chart-pie {
   position: relative;
-  height: 15rem;
+  height: 9rem;
   width: 100%;
   @include media-breakpoint-up(md) {
-    height: calc(20rem - 43px) !important;
+    height: calc(15rem - 43px) !important;
   }
 }
