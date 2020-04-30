@@ -20,31 +20,38 @@
 <!-- END - Page Heading Eventos-->
 <!-- START - Lista de eventos -->
 <div class="col-md-12">
-  <div class="card-columns mb-3" *ngFor="let listaEvento of resultadoEventos">
-    <div class="d-sm-flex my-4">
-      <h1 class="h3 mb-0 text-green">{{ listaEvento.mes }}</h1>
-    </div>
-    <div
-      class="card shadow-sm mb-2"
-      *ngFor="let eventos of listaEvento.eventos"
-    >
-      <div class="card-body">
-        <p class="card-text text-right text-uppercase">
-          <small class="text-success">{{ eventos.fecha }}</small>
-        </p>
-        <h5 class="card-title font-weight-bold">
-          {{ eventos.nombre }}
-        </h5>
-        <div>
-          <span class="small"
-            ><strong>Organiza:</strong> {{ eventos.organiza }}</span
-          >
-        </div>
-        <div>
-          <span class="small"><strong>Lugar:</strong> {{ eventos.lugar }}</span>
-        </div>
-        <div>
-          <span class="small"><strong>Hora:</strong> {{ eventos.hora }}</span>
+  <div *ngIf="!spinner">
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="spinner">
+    <div class="card-columns mb-3" *ngFor="let listaEvento of resultadoEventos">
+      <div class="d-sm-flex my-4">
+        <h1 class="h3 mb-0 text-green">{{ listaEvento.mes }}</h1>
+      </div>
+      <div
+        class="card shadow-sm mb-2"
+        *ngFor="let eventos of listaEvento.eventos"
+      >
+        <div class="card-body">
+          <p class="card-text text-right text-uppercase">
+            <small class="text-success">{{ eventos.fecha }}</small>
+          </p>
+          <h5 class="card-title font-weight-bold">
+            {{ eventos.nombre }}
+          </h5>
+          <div>
+            <span class="small"
+              ><strong>Organiza:</strong> {{ eventos.organiza }}</span
+            >
+          </div>
+          <div>
+            <span class="small"
+              ><strong>Lugar:</strong> {{ eventos.lugar }}</span
+            >
+          </div>
+          <div>
+            <span class="small"><strong>Hora:</strong> {{ eventos.hora }}</span>
+          </div>
         </div>
       </div>
     </div>
