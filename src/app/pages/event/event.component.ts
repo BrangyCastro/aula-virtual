@@ -133,6 +133,9 @@ export class EventComponent implements OnInit {
   // Variable para almacenar los resultados de los evento dependiendo
   // si es por uno o todos los meses
   resultadoEventos: ListaEventos[];
+
+  spinner = true;
+
   constructor() {}
 
   ngOnInit(): void {
@@ -141,13 +144,18 @@ export class EventComponent implements OnInit {
 
   // Metodo que me permite validar que mes esta seleccionado
   mostrarEventos(evento: string) {
-    if (evento === '0') {
-      this.resultadoEventos = this.listaEventos;
-    } else {
-      this.resultadoEventos = this.listaEventos.filter(
-        (item) => item.mes === evento
-      );
-    }
+    this.spinner = false;
+    setTimeout(() => {
+      if (evento === '0') {
+        this.spinner = true;
+        this.resultadoEventos = this.listaEventos;
+      } else {
+        this.spinner = true;
+        this.resultadoEventos = this.listaEventos.filter(
+          (item) => item.mes === evento
+        );
+      }
+    }, 5000);
   }
 }
 

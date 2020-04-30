@@ -95,7 +95,13 @@ export class HomeComponent implements OnInit {
     },
   ];
 
+  spinner = true;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.spinner = false;
+    }, 3000);
+  }
 }
